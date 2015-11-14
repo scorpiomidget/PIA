@@ -20,7 +20,12 @@ $html = scraperwiki::scrape($url, $params, $userAgent);
 // Find something on the page using css selectors
 $dom = new simple_html_dom();
 $dom->load($html);
-print_r($dom->find(".r a"));
+//print_r($dom->find(".r a"));
+$items = $dom->find(".r a"));
+
+foreach($items AS $i=>$item) {
+   echo $i.': '.$item->attr['href'].'<br />';
+}
 
 //
 // // Write out to the sqlite database using scraperwiki library
